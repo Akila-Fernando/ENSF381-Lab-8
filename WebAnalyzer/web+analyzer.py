@@ -35,6 +35,18 @@ for x in headers:
         headings += 1
 print(headings)
 
+#part 4: Keywords Analysis
+userinput = input("Enter a keyword: ")
+keyword = userinput.lower()
+keywordcount = 0
+
+words = soup.get_text().split()
+for word in words:
+    if word.lower() == keyword:
+        keywordcount += 1
+
+print(f"Keyword '{keyword}' appears {keywordcount} times")
+
 #part 5: Word Frequency Analysis
 words = soup.get_text().split()
 wordcounts = {}
