@@ -81,8 +81,6 @@ for paragraph in ptags:
 
 print(f"Longest Paragraph: {longestparagraph}, Number of words: {maxwordcount}")
 
-
-
 # part 7: Visualizing Results
 
 labels = ['Headings', 'Links', 'Paragraphs']
