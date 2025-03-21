@@ -9,7 +9,7 @@ try:
 except Exception as e:
     print(f"Error fetching content: {e}")
 
-print(soup.prettify())
+# print(soup.prettify())
 
 acount = 0
 atags = soup.find_all('a')
@@ -32,4 +32,32 @@ for x in headers:
         hcount += 1
 print(hcount)
 
-    
+
+words = soup.get_text().split()
+
+wordcounts = {}
+
+for word in words:
+    if (word.lower()) in wordcounts:
+        wordcounts[word.lower()] += 1
+    else: 
+        wordcounts[word.lower()] = 1
+
+
+frequentwords = []
+for i in range(5):
+    maxword = None
+    maxcount = 0
+
+    for word in wordcounts:
+        if maxword is None or wordcounts[word] > maxcount:
+            maxword = word
+            maxcount = wordcounts[word]
+
+    if maxword:
+        frequentwords.append((maxword, maxcount))
+        del wordcounts[maxword]
+
+
+for word, count in frequentwords:
+    print(f"{word}: {count}")
